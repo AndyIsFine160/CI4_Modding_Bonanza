@@ -4,7 +4,7 @@
 <br/>
 
 <div align="center">
-  <a href="https://github.com/zyx-0314/">
+  <a href="https://github.com/AndyIsFine160/CI4_Modding_Bonanza.git">
     <img src="./assets/img/nyebe_white.png" alt="Nyebe" width="130" height="100">
   </a>
 <!-- * Title Section -->
@@ -19,7 +19,7 @@ It helps teams quickly bootstrap backend + frontend projects, with simple sample
 
 <br/>
 
-![](https://visit-counter.vercel.app/counter.png?page=zyx-0314/ci4-template)
+![](https://github.com/AndyIsFine160/CI4_Modding_Bonanza.git)
 
 <!-- ! Make sure it was similar to your github -->
 
