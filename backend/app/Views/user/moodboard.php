@@ -107,30 +107,6 @@
             </div>
         </section>
 
-        <!-- Road Map -->
-        <section>
-            <h2 class="mb-4 font-raleway text-[#293241] text-3xl">Road Map</h2>
-            <div class="space-y-6">
-                <?php
-                $roadmap = [
-                    ['Design', 'UI/UX', '#ee6c4d'],
-                    ['Development', 'Backend', '#3d5a80'],
-                    ['Testing', 'QA', '#98c1d9'],
-                    ['Deployment', 'Ops', '#293241'],
-                ];
-                foreach ($roadmap as $step): ?>
-                    <div class="flex justify-between items-center bg-white shadow border-l-8 rounded-lg" style="border-color: <?= $step[2] ?>;">
-                        <div class="flex-1 p-4">
-                            <div class="font-raleway text-[#293241] text-xl"><?= $step[0] ?></div>
-                        </div>
-                        <div class="ml-4 px-4 py-2 rounded-full font-dmsans text-white text-sm" style="background: <?= $step[2] ?>;">
-                            <?= $step[1] ?>
-                        </div>
-                    </div>
-                <?php endforeach; ?>
-            </div>
-        </section>
-
     </div>
 </body>
 
