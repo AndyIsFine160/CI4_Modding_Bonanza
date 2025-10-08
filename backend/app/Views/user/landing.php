@@ -2,69 +2,12 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <title>Modding Bonanza - Discover & Share Mods</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Google Fonts: Raleway & DM Sans -->
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Raleway:wght@700;800&display=swap" rel="stylesheet">
-    <!-- Tailwind CSS via CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <meta name="theme-color" content="#3d5a80">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        raleway: ['Raleway', 'sans-serif'],
-                        dmsans: ['DM Sans', 'sans-serif'],
-                    },
-                    colors: {
-                        denim: '#3d5a80',
-                        cerulean: '#98c1d9',
-                        babyblue: '#e0fbfc',
-                        sienna: '#ee6c4d',
-                        petrol: '#293241',
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        /* Fallback for non-Tailwind elements */
-        body {
-            font-family: 'DM Sans', Arial, sans-serif;
-        }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-family: 'Raleway', Arial, sans-serif;
-        }
-    </style>
-</head>
+<?= view('components/head') ?>
 
 <body class="bg-denim min-h-screen font-dmsans text-babyblue">
 
     <!-- Header -->
-    <header class="bg-petrol/95 shadow-lg">
-        <div class="flex justify-between items-center mx-auto px-6 py-4 container">
-            <div class="flex items-center gap-2">
-                <svg class="w-8 h-8 text-cerulean" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path d="M12 2L2 7l10 5 10-5-10-5zm0 13v7m0 0l-7-4m7 4l7-4"></path>
-                </svg>
-                <span class="font-raleway font-bold text-cerulean text-2xl tracking-tight">Modding Bonanza</span>
-            </div>
-            <nav class="flex gap-6">
-                <a href="#" class="hover:text-sienna transition">Home</a>
-                <a href="/signup" class="hover:text-sienna transition">Sign Up</a>
-                <a href="/login" class="hover:text-sienna transition">Login</a>
-            </nav>
-        </div>
-    </header>
+    <?= view('components/header') ?>
 
     <!-- Hero Section -->
     <section class="flex md:flex-row flex-col items-center gap-12 mx-auto px-6 py-16 container">
@@ -152,16 +95,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-petrol/95 mt-12 py-6">
-        <div class="flex md:flex-row flex-col justify-between items-center gap-4 mx-auto px-6 container">
-            <span class="text-cerulean">&copy; <?= date('Y') ?> Modding Bonanza. All rights reserved.</span>
-            <nav class="flex gap-4 text-babyblue text-sm">
-                <a href="#" class="hover:text-sienna">About</a>
-                <a href="#" class="hover:text-sienna">Mood Board</a>
-                <a href="#" class="hover:text-sienna">Road Map</a>
-            </nav>
-        </div>
-    </footer>
+    <?= view('components/footer') ?>
 </body>
 
 </html>
