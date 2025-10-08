@@ -1,61 +1,112 @@
-<!-- app/Views/user/roadmap.php -->
-<!--
-    Roadmap List with Opposite-Side Icons
-    Color scheme: #3d5a80, #98c1d9, #e0fbfc, #ee64cd, #293241
-    Fonts: Raleway (headers), DM Sans (bottom text)
-    Data contract: $roadmap = [
-        ['title' => string, 'desc' => string, 'icon' => string (SVG or icon class), 'category' => string],
-        ...
-    ]
--->
+<?php
+// app/Views/user/roadmap.php
+// Data contract: $goals = array of ['title' => string, 'description' => string, 'icon' => string (SVG markup)]
+$goals = [
+    [
+        'title' => 'User Authentication',
+        'description' => 'Implement secure registration, login, and password reset for all users.',
+        'icon' => '<svg class="w-8 h-8" fill="none" stroke="#3d5a80" stroke-width="2" viewBox="0 0 24 24"><path d="M12 11c1.657 0 3-1.343 3-3S13.657 5 12 5s-3 1.343-3 3 1.343 3 3 3zm0 2c-2.67 0-8 1.337-8 4v3h16v-3c0-2.663-5.33-4-8-4z"/></svg>',
+    ],
+    [
+        'title' => 'Modding Submission System',
+        'description' => 'Allow users to submit, browse, and manage game mods with file uploads.',
+        'icon' => '<svg class="w-8 h-8" fill="none" stroke="#ee6c4d" stroke-width="2" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4"/></svg>',
+    ],
+    [
+        'title' => 'Admin Dashboard',
+        'description' => 'Provide admins with tools to moderate content, manage users, and view analytics.',
+        'icon' => '<svg class="w-8 h-8" fill="none" stroke="#293241" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>',
+    ],
+    [
+        'title' => 'Responsive Design',
+        'description' => 'Ensure the website is fully responsive and accessible on all devices.',
+        'icon' => '<svg class="w-8 h-8" fill="none" stroke="#e0fbfc" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 3h-8"/></svg>',
+    ],
+];
+?>
 
-<link href="https://fonts.googleapis.com/css?family=Raleway:700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=DM+Sans:400,500&display=swap" rel="stylesheet">
+<!-- Google Fonts: Raleway and DM Sans -->
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Raleway:wght@700;900&display=swap" rel="stylesheet">
+<!-- Tailwind CDN for utility classes -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+<style>
+    :root {
+        --primary: #3d5a80;
+        --secondary: #98c1d9;
+        --background: #e0fbfc;
+        --accent: #ee6c4d;
+        --dark: #293241;
+    }
 
-<div class="mx-auto py-8 w-full max-w-2xl">
-    <h2 class="mb-8 font-bold text-[#3d5a80] text-3xl" style="font-family: 'Raleway', sans-serif;">
-        Roadmap
-    </h2>
-    <ul class="space-y-8">
-        <?php foreach ($roadmap as $i => $item): ?>
-            <li class="flex justify-between items-center bg-[#e0fbfc] shadow p-6 rounded-lg">
-                <?php if ($i % 2 === 0): ?>
-                    <!-- Icon left, content right -->
-                    <span class="flex flex-shrink-0 justify-center items-center bg-[#98c1d9] rounded-full w-14 h-14">
-                        <?= $item['icon'] ?>
-                    </span>
-                    <div class="flex-1 ml-6 text-right">
-                        <h3 class="font-semibold text-[#3d5a80] text-xl" style="font-family: 'Raleway', sans-serif;">
-                            <?= esc($item['title']) ?>
-                        </h3>
-                        <p class="mt-2 text-[#293241]" style="font-family: 'DM Sans', sans-serif;">
-                            <?= esc($item['desc']) ?>
-                        </p>
-                        <span class="inline-block mt-2 px-3 py-1 rounded-full font-medium text-xs" style="background-color: #ee64cd; color: #fff; font-family: 'DM Sans', sans-serif;">
-                            <?= esc($item['category']) ?>
-                        </span>
+    body,
+    html {
+        background: var(--background);
+    }
+
+    .roadmap-section {
+        background: linear-gradient(135deg, var(--background) 0%, #fff 100%);
+        min-height: 100vh;
+    }
+
+    .roadmap-header {
+        color: var(--primary);
+        font-family: 'Raleway', sans-serif;
+        letter-spacing: 0.02em;
+    }
+
+    .roadmap-subtitle {
+        color: var(--secondary);
+        font-family: 'DM Sans', sans-serif;
+    }
+
+    .roadmap-card {
+        background: #fff;
+        border-left: 6px solid var(--primary);
+        box-shadow: 0 4px 16px 0 rgba(61, 90, 128, 0.07);
+        transition: box-shadow 0.2s;
+    }
+
+    .roadmap-card:hover {
+        box-shadow: 0 8px 32px 0 rgba(61, 90, 128, 0.15);
+        border-left-color: var(--accent);
+    }
+
+    .roadmap-step {
+        background: var(--secondary);
+        color: var(--dark);
+        font-family: 'Raleway', sans-serif;
+    }
+
+    .roadmap-title {
+        color: var(--primary);
+        font-family: 'Raleway', sans-serif;
+    }
+
+    .roadmap-desc {
+        color: var(--dark);
+        font-family: 'DM Sans', sans-serif;
+    }
+</style>
+
+<section class="py-16 roadmap-section">
+    <div class="mx-auto px-4 max-w-4xl">
+        <h2 class="mb-4 font-extrabold text-4xl text-center tracking-tight roadmap-header">Website Road Map</h2>
+        <p class="mb-12 text-lg text-center roadmap-subtitle">Our journey to building the ultimate modding community platform</p>
+        <ol class="space-y-8">
+            <?php foreach ($goals as $i => $goal): ?>
+                <li class="group relative flex items-start p-6 rounded-xl roadmap-card">
+                    <div class="flex-shrink-0 mr-4">
+                        <?= $goal['icon'] ?>
                     </div>
-                <?php else: ?>
-                    <!-- Content left, icon right -->
-                    <div class="flex-1 mr-6 text-left">
-                        <h3 class="font-semibold text-[#3d5a80] text-xl" style="font-family: 'Raleway', sans-serif;">
-                            <?= esc($item['title']) ?>
+                    <div>
+                        <h3 class="mb-1 font-semibold text-xl roadmap-title">
+                            <span class="inline-block mr-2 px-3 py-0.5 rounded-full font-bold text-sm align-middle roadmap-step"><?= $i + 1 ?></span>
+                            <?= esc($goal['title']) ?>
                         </h3>
-                        <p class="mt-2 text-[#293241]" style="font-family: 'DM Sans', sans-serif;">
-                            <?= esc($item['desc']) ?>
-                        </p>
-                        <span class="inline-block mt-2 px-3 py-1 rounded-full font-medium text-xs" style="background-color: #ee64cd; color: #fff; font-family: 'DM Sans', sans-serif;">
-                            <?= esc($item['category']) ?>
-                        </span>
+                        <p class="roadmap-desc"><?= esc($goal['description']) ?></p>
                     </div>
-                    <span class="flex flex-shrink-0 justify-center items-center bg-[#98c1d9] rounded-full w-14 h-14">
-                        <?= $item['icon'] ?>
-                    </span>
-                <?php endif; ?>
-            </li>
-        <?php endforeach; ?>
-    </ul>
-    <div class="mt-10 text-[#293241] text-sm text-center" style="font-family: 'DM Sans', sans-serif;">
-        Stay tuned for more updates on our journey!
+                </li>
+            <?php endforeach; ?>
+        </ol>
     </div>
-</div>
+</section>
