@@ -5,16 +5,15 @@
 
 <div align="center">
   <a href="https://github.com/AndyIsFine160/CI4_Modding_Bonanza.git">
-    <img src="./assets/img/nyebe_white.png" alt="Nyebe" width="130" height="100">
+    <img src="./assets/img/logo_main.png" alt="Nyebe" width="130" height="100">
   </a>
 <!-- * Title Section -->
-  <h3 align="center">AD - CI4 Template</h3>
+  <h3 align="center">Modding Bonanza</h3>
 </div>
 
 <!-- * Description Section -->
 <div align="center">
-This repository is a beginner-friendly CodeIgniter 4 template.  
-It helps teams quickly bootstrap backend + frontend projects, with simple sample modules that show how to extend the system.
+Modding Bonanza is a centralized platform designed to empower both new and experienced game modders. It offers an organized, user-friendly interface for discovering, sharing, and managing mods across popular modloaders like Forge and Fabric. The project aims to streamline the modding experience by providing searchable entries, visual overviews, and intuitive navigation—making it easy for players to find, download, and contribute mods. Whether you're looking to enhance your favorite games or showcase your own creations, Modding Bonanza brings the modding community together in one accessible hub.
 </div>
 
 <br/>
@@ -55,22 +54,23 @@ It helps teams quickly bootstrap backend + frontend projects, with simple sample
 
 ## Overview
 
-This template provides a **minimal CodeIgniter 4 project layout** with conventions for file organization, commit practices, and simple modules.
+This section contains basic information about this page's overall goals and and an overview of its provided services at the moment.
 
-It is designed to be **easy to start with** and a **reference for adding new features**.
-
-* **Purpose**: a clean starting point for CI4 apps.
-* **Audience**: developers who want a predictable structure and quick onboarding.
+* **Purpose**: To provide a proper platform for amateur and veteran modders alike in a centralized database with a decent interface.
+* **Audience**: Players looking to mod their games through the current modloaders like Forge and Fabric.
 
 ### Key Components
 
 These are **sample modules** included (or suggested) for learning how to add features:
 
-| Component                 | Purpose                                                             | Notes                                                   |
-| ------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------- |
-| **Auth (Sample)**         | Basic login/logout and role check (admin/user).                     | Uses CI4 sessions + MySQL `users` table.                |
-| **CRUD Module**           | Example entity (`Posts` or `Tasks`) with create/read/update/delete. | Demonstrates Controller → Service → Repository pattern. |
-| **Scheduler (Sample)**    | Simple to-do list with due dates.                                   | Shows how to extend with new tables and services.       |
+| Component                 | Purpose                                                             | Notes                                                      |
+| ------------------------- | ------------------------------------------------------------------- | ---------------------------------------------------------- |
+| **Visual Entries**        | Uses cards to properly give an overview of mod entries              | Visually Appealing (subjective)                            |
+| **Submit Your Own!**      | Submit your entries and add them to our extensive mod database!     | Seriously, feel free to submit your works                  |
+| **Navigation Items**      | Intuitive controls  to make your way through thousands of entries   | Properly Routed too                                        |
+| **Download Interface**    | Similar to Modrinth, easy access download pages                     | Maximum Efficiency and Precise Accuracy                    |
+| **Searchable Entries**    | Has a "search engine" that can help you look for your favorite mods!| Works with a database to find matches more efficiently     |
+
 
  <!-- ! Start simple. Use these modules as **learning samples**; extend or replace them based on your project’s needs. -->
 
@@ -87,13 +87,6 @@ These are **sample modules** included (or suggested) for learning how to add fea
 
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge\&logo=tailwindcss\&logoColor=white)
 ![CodeIgniter](https://img.shields.io/badge/CodeIgniter-EF4223?style=for-the-badge\&logo=codeigniter\&logoColor=white)
-
-#### Databases
-
-![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge\&logo=mysql\&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge\&logo=postgresql\&logoColor=white)
-![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge\&logo=mongodb\&logoColor=white)
-![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge\&logo=firebase\&logoColor=black)
 
 <!-- ! Keep only the used technology -->
 
