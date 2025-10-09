@@ -77,7 +77,9 @@
             <div class="flex gap-6">
                 <?= view('components/buttons/button', ['primary' => false, 'label' => 'Test']) ?>
                 <?= view('components/buttons/button', ['primary' => true, 'label' => 'Another']) ?>
-                <?= view('components/buttons/button', ['islink' => true, 'label' => 'Test', 'link' => '#']) ?>
+                <?= view('components/buttons/button_2', ['label' => 'Submit', 'variant' => 'submit']) ?>
+                <?= view('components/buttons/button_2', ['label' => 'Test', 'variant' => 'home', 'href' => '/', 'icon' => null]) ?>
+
             </div>
         </section>
 
@@ -105,14 +107,14 @@
                     'title' => 'Farmer\s Delight',
                     'author' => 'Vectowring',
                     'desc' => 'All in one Farming Mod for modern minecraft!',
-                    'image' => '/create_img.jpg',
+                    'image' => '/fDelight_img.jpg',
                     'downloads' => '6,520,000'
                 ]) ?>
                 <?= view('components/cards/card_mod', [
                     'title' => 'RLCraft',
                     'author' => 'Shivaxi',
                     'desc' => 'A modpack centered around challenge and realism',
-                    'image' => '/create_img.jpg',
+                    'image' => '/rlcraft_img.jpg',
                     'downloads' => '22,000'
                 ]) ?>
             </div>
@@ -128,6 +130,7 @@
                 <?= view('components/cards/card_base', ['islogo' => true, 'label' => 'Logo Card 2', 'img' => '/logo_horizontal.png', 'text' => 'Might as well try putting something here']) ?>
         </section>
     </div>
+    <?= view('components/footer') ?>
 </body>
 
 </html>
