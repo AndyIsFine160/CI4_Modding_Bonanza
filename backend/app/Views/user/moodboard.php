@@ -27,6 +27,8 @@
     </style>
 </head>
 
+<?= view('components/header') ?>
+
 <body class="bg-[#e0fbfc] px-4 py-8 min-h-screen">
     <div class="space-y-12 mx-auto max-w-5xl">
 
@@ -35,6 +37,9 @@
             <h2 class="mb-4 font-raleway text-[#293241] text-3xl">Color Palette</h2>
             <div class="flex gap-6">
                 <?php
+
+                use function PHPSTORM_META\type;
+
                 $colors = [
                     ['#3d5a80', 'Denim Blue'],
                     ['#98c1d9', 'Pale Cerulean'],
@@ -66,47 +71,62 @@
             </div>
         </section>
 
-        <!-- Buttons -->
+        <!-- Buttons (Fragmented Na)-->
         <section>
-            <h2 class="mb-4 font-raleway text-[#293241] text-3xl">Buttons</h2>
+            <h2 class="mb-4 font-raleway text-[#293241] text-3xl">Button Samples</h2>
             <div class="flex gap-6">
-                <button class="bg-[#e0fbfc] hover:bg-[#98c1d9] shadow px-6 py-2 border-[#3d5a80] border-2 rounded-lg font-raleway text-[#293241] transition">Primary</button>
-                <button class="bg-[#ee6c4d] hover:bg-[#3d5a80] shadow px-6 py-2 border-[#ee6c4d] border-2 hover:border-[#3d5a80] rounded-lg font-raleway text-white transition">Accent</button>
+                <?= view('components/buttons/button', ['primary' => false, 'label' => 'Test']) ?>
+                <?= view('components/buttons/button', ['primary' => true, 'label' => 'Another']) ?>
+                <?= view('components/buttons/button', ['islink' => true, 'label' => 'Test', 'link' => '#']) ?>
             </div>
         </section>
 
-        <!-- Simple Cards -->
+        <!-- Simple Cards (Fragmented na)-->
         <section>
             <h2 class="mb-4 font-raleway text-[#293241] text-3xl">Simple Cards</h2>
             <div class="gap-6 grid grid-cols-1 md:grid-cols-3">
-                <?php for ($i = 1; $i <= 3; $i++): ?>
-                    <div class="flex flex-col items-center bg-[#e0fbfc] shadow-lg p-6 border border-[#98c1d9] rounded-xl">
-                        <div class="mb-2 font-raleway text-[#3d5a80] text-xl">Card Title <?= $i ?></div>
-                        <div class="font-dmsans text-[#293241] text-base text-center">This is a simple card example. Use for features, highlights, or quick info.</div>
-                    </div>
-                <?php endfor; ?>
+                <?= view('components/cards/card_base', ['label' => 'Test 1', 'img' => '/logo_box.png', 'text' => 'not sample text']) ?>
+                <?= view('components/cards/card_base', ['label' => 'Test 2', 'img' => '/logo_box.png', 'text' => 'definitely not just some sample text']) ?>
+                <?= view('components/cards/card_base', ['label' => 'Test 3', 'img' => '/logo_box.png', 'text' => 'I swear this is not sample text']) ?>
             </div>
         </section>
+        <!-- Modded Cards -->
+        <section>
+            <h2 class="mb-4 font-raleway text-[#293241] text-3xl">Mod Cards</h2>
+            <div class="flex md:flex-row flex-col gap-8 md:grid-cols-2">
+                <?= view('components/cards/card_mod', [
+                    'title' => 'Create Mod [Original]',
+                    'author' => 'simibubi',
+                    'desc' => 'An immersive journey through cogs and steam',
+                    'image' => '/create_img.jpg',
+                    'downloads' => '6,740,000'
+                ]) ?>
+                <?= view('components/cards/card_mod', [
+                    'title' => 'Farmer\s Delight',
+                    'author' => 'Vectowring',
+                    'desc' => 'All in one Farming Mod for modern minecraft!',
+                    'image' => '/create_img.jpg',
+                    'downloads' => '6,520,000'
+                ]) ?>
+                <?= view('components/cards/card_mod', [
+                    'title' => 'RLCraft',
+                    'author' => 'Shivaxi',
+                    'desc' => 'A modpack centered around challenge and realism',
+                    'image' => '/create_img.jpg',
+                    'downloads' => '22,000'
+                ]) ?>
+            </div>
 
-        <!-- Logo Cards -->
+        </section>
+
+        <!-- Logo Cards (Fragmented na)-->
         <section>
             <h2 class="mb-4 font-raleway text-[#293241] text-3xl">Logo Cards</h2>
-            <div class="flex md:flex-row flex-col gap-8">
-                <?php
-                $logos = [
-                    ['https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg', 'React Logo'],
-                    ['https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png', 'JavaScript Logo'],
-                ];
-                foreach ($logos as [$img, $label]): ?>
-                    <div class="flex flex-col items-center bg-[#e0fbfc] shadow-lg p-6 border border-[#98c1d9] rounded-xl w-full md:w-1/2">
-                        <img src="<?= $img ?>" alt="<?= $label ?>" class="mb-4 w-20 h-20 object-contain">
-                        <div class="mb-1 font-raleway text-[#3d5a80] text-lg"><?= $label ?></div>
-                        <div class="font-dmsans text-[#293241] text-sm text-center">A sample logo card with supporting text using DM Sans for clarity and style.</div>
-                    </div>
-                <?php endforeach; ?>
-            </div>
+            <div class="flex md:flex-row flex-col gap-8 md:grid-cols-2">
+                <?= view('components/cards/card_base', ['islogo' => true, 'label' => 'Logo Card', 'img' => '/logo_box.png', 'text' => 'This is a sample card with description text!']) ?>
+                <?= view('components/cards/card_base', ['islogo' => true, 'label' => 'Logo Card 2', 'img' => '/logo_horizontal.png', 'text' => 'Might as well try putting something here']) ?>
+                <?= view('components/cards/card_base', ['islogo' => true, 'label' => 'Logo Card 2', 'img' => '/logo_horizontal.png', 'text' => 'Might as well try putting something here']) ?>
         </section>
-
     </div>
 </body>
 
