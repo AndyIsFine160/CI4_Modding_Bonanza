@@ -9,22 +9,13 @@ class CreateUserTable extends Migration
     public function up()
     {
         $this->forge->addField([
-            'f_name' => [
-                'type'       => 'VARCHAR',
-                'constraint' => 100,
-                'null'       => false,
-            ],
-            'm_name' => [
-                'type'       => 'VARCHAR',
-                'constraint' => 100,
-                'null'       => true,
-            ],
-            'l_name' => [
-                'type'       => 'VARCHAR',
-                'constraint' => 100,
-                'null'       => false,
-            ],
             'user_id' => [
+                'type'           => 'INT',
+                'constraint'     => 11,
+                'unsigned'       => true,
+                'auto_increment' => true,
+            ],
+            'user_name' => [
                 'type'       => 'VARCHAR',
                 'constraint' => 100,
                 'null'       => false,
@@ -70,11 +61,11 @@ class CreateUserTable extends Migration
             ],
         ]);
         $this->forge->addKey('user_id', true);
-        $this->forge->createTable('table_name_here', true);
+        $this->forge->createTable('User', true);
     }
 
     public function down()
     {
-        $this->forge->dropTable('table_name_here', true);
+        $this->forge->dropTable('User', true);
     }
 }
