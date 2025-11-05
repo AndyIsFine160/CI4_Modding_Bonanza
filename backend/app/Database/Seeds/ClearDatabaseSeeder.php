@@ -12,7 +12,7 @@ class ClearDatabaseSeeder extends Seeder
 
         // Order matters: child tables first, then parents
         // List down your tables here
-        $tablesInOrder = [];
+        $tablesInOrder = ['User'];
 
         $db->disableForeignKeyChecks();
 
@@ -27,4 +27,6 @@ class ClearDatabaseSeeder extends Seeder
             $db->enableForeignKeyChecks();
         }
     }
+    // docker compose exec -T php php spark db:seed ClearDatabaseSeeder
+
 }
