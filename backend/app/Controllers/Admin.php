@@ -14,4 +14,8 @@ class Admin extends BaseController
     {
         return view('admin/services');
     }
+    public function acc(): string
+    {
+        return view('admin/accounts');
+    }
 }
