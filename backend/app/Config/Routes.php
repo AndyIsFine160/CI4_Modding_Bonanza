@@ -18,3 +18,5 @@ $routes->get('/signup', 'Auth::signup');
 $routes->get('/dash', 'Admin::dash');
 $routes->get('/serv', 'Admin::serv');
 $routes->get('/acc', 'Admin::acc');
+$routes->get('/req', 'Admin::req');
+$routes->get('/req_t', 'Admin::req_t');

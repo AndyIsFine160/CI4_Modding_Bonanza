@@ -18,4 +18,12 @@ class Admin extends BaseController
     {
         return view('admin/accounts');
     }
+    public function req(): string
+    {
+        return view('admin/requests');
+    }
+    public function req_t(): string
+    {
+        return view('admin/req_table');
+    }
 }
