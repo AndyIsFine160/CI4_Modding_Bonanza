@@ -18,8 +18,12 @@ class Users extends BaseController
     {
         return view('user/moodboard');
     }
-    public function button(): string
+    public function login(): string
     {
-        return view('components/button');
+        return view('user/login');
+    }
+    public function signup(): string
+    {
+        return view('user/signup');
     }
 }
