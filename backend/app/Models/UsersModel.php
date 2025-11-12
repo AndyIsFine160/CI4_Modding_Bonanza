@@ -4,13 +4,13 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class UserModel extends Model
+class UsersModel extends Model
 {
     protected $table            = 'User';
     protected $primaryKey       = 'user_id';
     protected $useAutoIncrement = true;
     protected $returnType       = '\App\\Entities\\User';
-    protected $useSoftDeletes   = false;
+    protected $useSoftDeletes   = true;
     protected $protectFields    = true;
     protected $allowedFields    = ['user_id', 'user_name', 'email', 'password_hash', 'type', 'account_status', 'profile_image'];
 

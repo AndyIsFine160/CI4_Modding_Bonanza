@@ -14,6 +14,10 @@ $routes->get('/road', 'Users::roadmap');
 $routes->get('/login', 'Users::login');
 $routes->get('/signup', 'Users::signup');
 
+$routes->post('login', 'Auth::login');
+$routes->post('signup', 'Auth::signup');
+$routes->post('logout', 'Auth::logout');
+
 // Admin Pages
 $routes->get('/dash', 'Admin::dash');
 $routes->get('/serv', 'Admin::serv');
