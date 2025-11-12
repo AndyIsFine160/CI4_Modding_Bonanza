@@ -37,7 +37,7 @@
     <div class="bg-white shadow-lg p-8 border border-[var(--pale-cerulean)] rounded-xl w-full max-w-md">
         <h1 class="mb-2 font-bold text-[var(--denim-blue)] text-3xl text-center">Login</h1>
         <p class="mb-6 text-[var(--gun-metal)] text-center">Join <span class="font-semibold text-[var(--burnt-sienna)]">Modding Bonanza</span> today!</p>
-        <form method="post" action="<?= site_url('auth/signup') ?>" class="space-y-4">
+        <form method="post" action="<?= site_url('login') ?>" class="space-y-4">
             <div>
                 <label for="username" class="block mb-1 font-medium text-[var(--denim-blue)] text-sm">Username or Email</label>
                 <input type="text" id="username" name="username" required
