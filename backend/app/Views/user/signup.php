@@ -33,14 +33,18 @@
     </style>
 </head>
 
+<a href="<?= site_url('/') ?>" class="top-4 left-4 absolute bg-[var(--pale-cerulean)] hover:bg-[var(--baby-blue)] px-4 py-2 rounded-lg font-medium text-[var(--denim-blue)] transition-colors">
+    ← Back
+</a>
+
 <body class="flex justify-center items-center bg-[var(--denim-blue)] min-h-screen">
     <div class="bg-white shadow-lg p-8 border border-[var(--pale-cerulean)] rounded-xl w-full max-w-md">
         <h1 class="mb-2 font-bold text-[var(--denim-blue)] text-3xl text-center">Sign Up</h1>
         <p class="mb-6 text-[var(--gun-metal)] text-center">Welcome to <span class="font-semibold text-[var(--burnt-sienna)]">Modding Bonanza</span>!</p>
-        <form method="post" action="<?= site_url('auth/signup') ?>" class="space-y-4">
+        <form method="post" action="<?= site_url('signup') ?>" class="space-y-4">
             <div>
                 <label for="username" class="block mb-1 font-medium text-[var(--denim-blue)] text-sm">Username</label>
-                <input type="text" id="username" name="username" required
+                <input type="text" id="user_name" name="user_name" required
                     class="bg-[var(--baby-blue)] px-4 py-2 border border-[var(--pale-cerulean)] rounded-lg focus:outline-none focus:ring-[var(--denim-blue)] focus:ring-2 w-full text-[var(--gun-metal)]" />
             </div>
             <div>
@@ -55,7 +59,7 @@
             </div>
             <div>
                 <label for="password_confirm" class="block mb-1 font-medium text-[var(--denim-blue)] text-sm">Confirm Password</label>
-                <input type="password" id="password_confirm" name="password_confirm" required
+                <input type="password" id="confirm" name="confirm" required
                     class="bg-[var(--baby-blue)] px-4 py-2 border border-[var(--pale-cerulean)] rounded-lg focus:outline-none focus:ring-[var(--denim-blue)] focus:ring-2 w-full text-[var(--gun-metal)]" />
             </div>
             <button type="submit"

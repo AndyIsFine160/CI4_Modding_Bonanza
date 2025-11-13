@@ -26,6 +26,7 @@
 </head>
 
 <body class="bg-gray-50 body-font">
+    <?= view('components/header') ?>
     <div class="mx-auto px-4 py-8 container">
         <h1 class="mb-6 font-bold text-3xl header-font" style="color: #293241;">
             Mod Upload Requests
@@ -111,6 +112,7 @@
             </div>
         </div>
     </div>
+    <?= view('components/footer') ?>
 </body>
 
 </html>

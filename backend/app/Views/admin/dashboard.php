@@ -43,7 +43,11 @@
                 </div>
                 <div class="flex items-center space-x-4 text-custom-light">
                     <span>Welcome, Admin</span>
-                    <a href="/logout" class="hover:text-custom-secondary">Logout</a>
+                    <form method="POST" action="/logout" style="display:inline;">
+                        <button type="submit" class="bg-transparent hover:bg-custom-dark px-3 py-2 rounded-lg hover:text-custom-secondary">
+                            Logout
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -76,15 +80,18 @@
             <div class="px-6 py-4 border-gray-200 border-b">
                 <h2 class="font-medium text-lg">Quick Actions</h2>
             </div>
-            <div class="gap-4 grid grid-cols-1 md:grid-cols-3 p-6">
-                <a href="/admin/users" class="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-lg text-white text-center">
-                    Manage Users
+            <div class="gap-4 grid grid-cols-1 md:grid-cols-4 p-6">
+                <a href="/acc" class="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-lg text-white text-center">
+                    Accounts Overview
                 </a>
-                <a href="/admin/mods" class="bg-green-500 hover:bg-green-600 px-4 py-2 rounded-lg text-white text-center">
-                    Manage Mods
+                <a href="/req" class="bg-green-500 hover:bg-green-600 px-4 py-2 rounded-lg text-white text-center">
+                    Add Mods
                 </a>
-                <a href="/admin/reports" class="bg-red-500 hover:bg-red-600 px-4 py-2 rounded-lg text-white text-center">
-                    View Reports
+                <a href="/req_t" class="bg-red-500 hover:bg-red-600 px-4 py-2 rounded-lg text-white text-center">
+                    View Requests / Reports
+                </a>
+                <a href="/serv" class="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-lg text-white text-center">
+                    Manage Mod Entries
                 </a>
             </div>
         </div>
