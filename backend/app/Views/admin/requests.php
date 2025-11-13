@@ -65,11 +65,7 @@
 <body class="bg-ice font-dm-sans">
     <div class="min-h-screen">
         <!-- Header -->
-        <header class="bg-dark py-6">
-            <div class="mx-auto px-4 container">
-                <h1 class="font-raleway font-bold text-ice text-3xl">Modding Bonanza</h1>
-            </div>
-        </header>
+        <?= view('components/header') ?>
 
         <!-- Main Content -->
         <main class="mx-auto px-4 py-8 container">
@@ -118,6 +114,7 @@
             </div>
         </main>
     </div>
+    <?= view('components/footer') ?>
 </body>
 
 </html>

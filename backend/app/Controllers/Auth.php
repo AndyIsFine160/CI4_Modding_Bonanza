@@ -42,10 +42,10 @@ class Auth extends BaseController
         }
 
         $session->set('user', [
-            'user_id' => $userArr['user_id'] ?? null,
-            'email' => $userArr['email'] ?? null,
+            'user_id'   => $userArr['user_id'] ?? null,
+            'email'     => $userArr['email'] ?? null,
             'user_name' => $userArr['user_name'] ?? null,
-            'type' => $userArr['type'] ?? null
+            'type'      => $userArr['type'] ?? null
         ]);
 
         $type = strtolower($userArr['type'] ?? 'client');
@@ -69,25 +69,64 @@ class Auth extends BaseController
     {
         $session = session();
         $request = service('request');
-
         $validation = \Config\Services::validation();
+
         $validation->setRule('email', 'Email', 'required|valid_email');
-        $validation->setRule('user_name', 'Username', 'required');
-        $validation->setRule('password', 'Password', 'required');
+        $validation->setRule('user_name', 'Username', 'required|min_length[5]'); // Should be unique + has number
+        $validation->setRule('password', 'Password', 'required|min_length[5]');
+        $validation->setRule('confirm', 'Confirm Password', 'required|matches[password]');
+        /*$validation->setRule(
+            'user_name',
+            'Username',
+            'required|min_length[5]|regex_match[/[0-9]/]',
+            ['regex_match' => 'Username must contain at least one number.']
+        );*/
 
         $post = $request->getPost();
 
+        if (! $validation->run($post)) {
+            $session->setFlashdata('errors', $validation->getErrors());
+            $session->setFlashdata('old', $post);
+            return redirect()->back()->withInput();
+        }
+
+        // Initialize model BEFORE using it
         $userModel = new \App\Models\UsersModel();
 
+        // Check if email already exists
+        if ($userModel->where('email', $post['email'])->first()) {
+            $session->setFlashdata('errors', ['email' => 'Email already exists']);
+            $session->setFlashdata('old', $post);
+            return redirect()->back()->withInput();
+        }
+        if ($userModel->where('user_name', $post['user_name'])->first()) {
+            $session->setFlashdata('errors', ['user_name' => 'Username already exists']);
+            $session->setFlashdata('old', $post);
+            return redirect()->back()->withInput();
+        }
+        if (!preg_match('/[0-9]/', $post['user_name'])) {
+            $session->setFlashdata('errors', ['user_name' => 'Username must contain at least one number.']);
+            $session->setFlashdata('old', $post);
+            return redirect()->back()->withInput();
+        }
+
+
+        // Insert user
         $data = [
-            'user_name' => $post['user_name'],
-            'email' => $post['email'],
-            'password_hash' => password_hash($post['password'], PASSWORD_DEFAULT),
-            'type' => 'client',
+            'user_name'      => $post['user_name'],
+            'email'          => $post['email'],
+            'password_hash'  => password_hash($post['password'], PASSWORD_DEFAULT),
+            'type'           => 'client',
             'account_status' => 1
         ];
 
         $inserted = $userModel->insert($data);
-        return redirect()->to('/login');
+
+        if ($inserted) {
+            return redirect()->to('/login')->with('success', 'Account created successfully.');
+        } else {
+            $session->setFlashdata('errors', ['db' => 'Failed to create account.']);
+            return redirect()->back()->withInput();
+        }
     }
 }
